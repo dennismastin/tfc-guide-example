@@ -1,0 +1,13 @@
+---
+- &aws_vars
+  - !variable aws-access-key
+  - !variable aws-secret-key
+  - !variable aws-region
+
+- &tf_hosts
+  - !host tf-cloud
+
+- !permit
+  roles: !host tf-cloud
+  privilege: [ read, execute ]
+  resources: *aws_vars 
