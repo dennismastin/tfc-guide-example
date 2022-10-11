@@ -1,6 +1,6 @@
 provider "aws" {
-  access_key = ${data.conjur_secret.aws_access_key_id.value}
-  secret_key = ${data.conjur_secret.aws_secret_key.value}
+  access_key = data.conjur_secret.aws_access_key_id.value
+  secret_key = data.conjur_secret.aws_secret_key.value
   region     = var.region
 }
 
