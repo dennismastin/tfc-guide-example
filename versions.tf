@@ -5,6 +5,11 @@ terraform {
       version = "~> 3.28.0"
     }
 
+    conjur = {
+      source = "cyberark/conjur"
+      versoin = "~>0.6.3"
+    }
+
     random = {
       source  = "hashicorp/random"
       version = "3.0.0"
