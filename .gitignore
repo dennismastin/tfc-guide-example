@@ -12,6 +12,7 @@ crash.log
 commands
 git-key
 aws-damastin-creds.sh
+ssh-jump.sh
 
 # Ignore any .tfvars files that are generated automatically for each Terraform run. Most
 # .tfvars files are managed as part of configuration and so should be included in
