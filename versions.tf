@@ -7,7 +7,7 @@ terraform {
 
     conjur = {
       source = "cyberark/conjur"
-      versoin = "~>0.6.3"
+      version = "~>0.6.3"
     }
 
     random = {
