@@ -1,13 +1,20 @@
 ---
-- &aws_vars
-  - !variable aws-access-key
-  - !variable aws-secret-key
-  - !variable aws-region
+- !policy
+  id: dev
+  body:
 
-- &tf_hosts
-  - !host tf-cloud
+    - &aws_vars
+      - !variable aws-access-key
+      - !variable aws-secret-key
+      - !variable aws-region
 
-- !permit
-  roles: !host tf-cloud
-  privilege: [ read, execute ]
-  resources: *aws_vars 
+    - &tf_hosts
+      - !host 
+        id: tf-cloud
+        annotations:
+          authn/api-key: true
+
+    - !permit
+      roles: !host tf-cloud
+      privilege: [ read, execute ]
+      resources: *aws_vars 
