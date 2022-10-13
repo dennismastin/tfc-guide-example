@@ -1,11 +1,11 @@
 provider "conjur" {}
 
 data "conjur_secret" "aws_access_key_id" {
-  name = "aws-access-key"
+  name = "data/dev/aws-access-key"
 }
 
 data "conjur_secret" "aws_secret_key" {
-  name = "aws-secret-key"
+  name = "data/dev/aws-secret-key"
 }
 
 variable "region" {
