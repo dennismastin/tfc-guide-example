@@ -4,7 +4,7 @@ provider "aws" {
   region     = var.region
 }
 
-#change this to rhel
+#change this to rhel - foo
 data "aws_ami" "ubuntu" {
   most_recent = true
 
