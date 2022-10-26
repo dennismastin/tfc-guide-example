@@ -3,11 +3,11 @@ provider "conjur" {}
 #hello david
 
 data "conjur_secret" "aws_access_key_id" {
-  name = "data/dev/aws-access-key"
+  name = "data/vault/dam-tf-aws/tfc-test-aws-ussewest/username"
 }
 
 data "conjur_secret" "aws_secret_key" {
-  name = "data/dev/aws-secret-key"
+  name = "data/vault/dam-tf-aws/tfc-test-aws-ussewest/password"
 }
 
 variable "region" {
