@@ -1,0 +1,7 @@
+- !delete
+  record: !variable dev/dev/aws-access-key
+- !delete
+  record: !variable dev/dev/aws-region
+- !delete
+  record: !variable dev/dev/aws-secret-key
+

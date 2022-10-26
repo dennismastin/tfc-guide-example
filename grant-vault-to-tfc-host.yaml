@@ -1,0 +1,3 @@
+- !grant
+  role: !group vault/dam-tf-aws/delegation/consumers
+  member: !host dev/tf-cloud
