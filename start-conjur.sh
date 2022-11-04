@@ -2,7 +2,7 @@
 
 conjur_fqdn="ec2-xx-xxx-xxx-xxx.us-west-1.compute.amazonaws.com"
 conjur_password="<<xxxxxxxxx>>>>>"
-account="sempra"
+account="ACCT_NAME"
 
 #todo: Rework conjur docker image storage
 #conjur_appliance_image="conjur-appliance:12.6.0"
