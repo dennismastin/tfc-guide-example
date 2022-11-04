@@ -4,7 +4,7 @@ provider "aws" {
   region     = var.region
 }
 
-#change this to rhel - foo - goo - Garnet
+# Sempra Demo
 data "aws_ami" "ubuntu" {
   most_recent = true
 
