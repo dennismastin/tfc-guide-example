@@ -3,8 +3,67 @@ log=/home/ubuntu/init_log
 sudo -u ubuntu touch $log
 sudo -u ubuntu echo "sudo -u ubuntu whoami: $(whoami)" >> $log
 
-sudo apt --yes update >> $log
-sudo apt --yes install git >> $log
+#sudo apt --yes update >> $log
+#sudo apt --yes install git >> $log
 
 echo ${var1} >> $log
+
+
+## Flows Vars for Jody_Test
+#######################################
+# Flows Tenant Parameters  Hardcoded for now
+export FLOWS_ADMIN_USER="jody_bot@cyberark.cloud.3357"
+export FLOWS_TENANT="acj5413.flows.integration-cyberark.cloud"
+export FLOW_NAME="JodyTest-01-Provision"
+export FLOWS_REQUESTOR="dennis.mastin@cyberark.com"
+# Workload inputs P-Cloud Parameters  In TF_CLOUD VARS
+export APP_ID="AnsibleId"
+export SAFE_NAME="rh_bot"
+export SSH_ACCOUNT_NAME="Flows-SSH"
+export SSH_USER="ubuntu"
+#######################################
+
+
+
+# From TF Variables 
+export FLOWS_ADMIN_PWD="${TEMPLATE_FLOWS_ADMIN_PWD}"
+
+#######################################
+# From Outputs of TF_CLOUD Run
+export SSH_PKEY="${SSH_PKEY}"
+export SSH_ADDRESS="${SSH_ADDRESS}"
+#######################################
+
+export SSH_PKEY_CONVERTED_64=$(echo $SSH_PKEY | base64 -w0)
+
+# User_data
+echo >> $log
+echo "Running:" >> $log
+echo "  Tenant: $FLOWS_TENANT" >> $log
+echo "  Flow: $FLOW_NAME" >> $log
+echo "  AppID: $APP_ID" >> $log
+echo "  SafeName: $SAFE_NAME" >> $log
+echo "  RequestorEmail: $REQUESTOR" >> $log
+echo "  SshAcctName: $SSH_ACCOUNT_NAME" >> $log
+echo "  SshUser: $SSH_USER" >> $log
+echo "  SshPkey: $SSH_PKEY" >> $log
+echo "  SshAddress: $SSH_ADDRESS" >> $log
+echo
+set -x
+curl -k -X POST						\
+	-H 'Content-Type: application/json' 		\
+	--data "{					\
+		\"adminId\": \"$FLOWS_ADMIN_USER\",		\
+		\"adminPassword\": \"$FLOWS_ADMIN_PWD\",	\
+		\"appId\": \"$APP_ID\",			\
+		\"safeName\": \"$SAFE_NAME\",		\
+		\"requestorEmail\": \"$FLOWS_REQUESTOR\",	\
+		\"sshAcctName\": \"$SSH_ACCOUNT_NAME\",	\
+		\"sshUser\": \"$SSH_USER\",		\
+		\"sshPkey\": \"$SSH_PKEY_CONVERTED_64\",		\
+		\"sshAddress\": \"$SSH_ADDRESS\"	\
+	}"						\
+	https://$FLOWS_TENANT/flows/$FLOW_NAME/play >> $log
+echo >> $log
+echo >> $log
 
