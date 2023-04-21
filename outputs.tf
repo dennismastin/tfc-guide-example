@@ -11,6 +11,6 @@ output "instance_ipaddr" {
 }
 
 output "instance_ssh_private" {
-  value = key_pair.private_key_pem
+  value = module.key_pair.private_key_pem
 }
 
