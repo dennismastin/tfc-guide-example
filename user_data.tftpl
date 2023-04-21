@@ -1,0 +1,10 @@
+#! /bin/bash
+log=/home/ubuntu/init_log
+sudo -u ubuntu touch $log
+sudo -u ubuntu echo "sudo -u ubuntu whoami: $(whoami)" >> $log
+
+sudo apt --yes update >> $log
+sudo apt --yes install git >> $log
+
+echo ${var1} >> $log
+
