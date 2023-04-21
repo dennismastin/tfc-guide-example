@@ -34,4 +34,5 @@ resource "aws_instance" "ubuntu" {
 
 resource "aws_key_pair" "dam-rsa2023-tf-keypair" {
   key_name   = "dam-rsa2023-tf-keypair"
+  create_private_key = true
 }
