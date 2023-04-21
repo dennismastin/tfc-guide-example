@@ -3,11 +3,13 @@ provider "conjur" {}
 #hello david test 4-21
 
 data "conjur_secret" "aws_access_key_id" {
-  name = "data/vault/dam-tf-aws/tfc-test-aws-ussewest/username"
+  name = "data/vault/ussewest-rsa/Cloud Service-AWSProgrammaticAccessKeys-dennis.mastin/AWSAccessKeyID"
+  default = ""
 }
 
 data "conjur_secret" "aws_secret_key" {
-  name = "data/vault/dam-tf-aws/tfc-test-aws-ussewest/password"
+  name = "data/vault/ussewest-rsa/Cloud Service-AWSProgrammaticAccessKeys-dennis.mastin/password"
+  default = ""
 }
 
 variable "region" {
