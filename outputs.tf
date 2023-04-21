@@ -12,5 +12,6 @@ output "instance_ipaddr" {
 
 output "instance_ssh_private" {
   value = module.key_pair.private_key_pem
+  sensitve = true
 }
 
