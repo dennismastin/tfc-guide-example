@@ -25,7 +25,8 @@ export SSH_USER="ubuntu"
 
 
 # From TF Variables 
-export FLOWS_ADMIN_PWD="${TEMPLATE_FLOWS_ADMIN_PWD}"
+#export FLOWS_ADMIN_PWD="${TEMPLATE_FLOWS_ADMIN_PWD}"
+export FLOWS_ADMIN_PWD="CyberArk11@@"
 
 #######################################
 # From Outputs of TF_CLOUD Run
@@ -47,6 +48,8 @@ echo "  SshAcctName: $SSH_ACCOUNT_NAME" >> $log
 echo "  SshUser: $SSH_USER" >> $log
 echo "  SshPkey: $SSH_PKEY" >> $log
 echo "  SshAddress: $SSH_ADDRESS" >> $log
+echo "  FlowsAdminUser: $FLOWS_ADMIN_USER" >> $log
+echo "  FlowsAdminUserPWD: $FLOWS_ADMIN_PWD" >> $log
 echo
 set -x
 curl -k -X POST						\
