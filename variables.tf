@@ -24,3 +24,9 @@ variable "instance_name" {
   description = "EC2 instance name"
   default     = "DAM 2 ussewest Provisioned by Terraform"
 }
+
+variable "FLOWS_ADMIN_PWD" {
+  description = "Flows admin user"
+  default     = ""
+}
+
