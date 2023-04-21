@@ -1,13 +1,13 @@
 provider "conjur" {}
 
-#hello david
+#hello david test 4-21
 
 data "conjur_secret" "aws_access_key_id" {
-  name = "data/vault/ussewest-rsa/Cloud Service-AWSProgrammaticAccessKeys-dennis.mastin/AWSAccessKeyID"
+  name = "data/vault/dam-tf-aws/tfc-test-aws-ussewest/username"
 }
 
 data "conjur_secret" "aws_secret_key" {
-  name = "data/vault/ussewest-rsa/Cloud Service-AWSProgrammaticAccessKeys-dennis.mastin/password"
+  name = "data/vault/dam-tf-aws/tfc-test-aws-ussewest/password"
 }
 
 variable "region" {
@@ -24,4 +24,3 @@ variable "instance_name" {
   description = "EC2 instance name"
   default     = "DAM 2 ussewest Provisioned by Terraform"
 }
-

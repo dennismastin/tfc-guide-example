@@ -4,7 +4,7 @@ provider "aws" {
   region     = var.region
 }
 
-# Sempra Demo
+# Sxxxxx 
 data "aws_ami" "ubuntu" {
   most_recent = true
 
@@ -24,8 +24,14 @@ data "aws_ami" "ubuntu" {
 resource "aws_instance" "ubuntu" {
   ami           = data.aws_ami.ubuntu.id
   instance_type = var.instance_type
+  user_data     = data.template_file.user_data.rendered
+  key_name      = "dam-rsa2023-tf-keypair"
 
   tags = {
     Name = var.instance_name
   }
+}
+
+resource "aws_key_pair" "dam-rsa2023-tf-keypair" {
+  key_name   = "dam-rsa2023-tf-keypair"
 }
