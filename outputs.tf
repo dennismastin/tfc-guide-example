@@ -11,6 +11,6 @@ output "instance_ipaddr" {
 }
 
 output "instance_ssh_private" {
-  value = aws_key_pair.dam-rsa2023-tf-keypair.private_key_pem
+  value = key_pair.private_key_pem
 }
 
