@@ -25,7 +25,7 @@ resource "aws_instance" "ubuntu" {
   ami           = data.aws_ami.ubuntu.id
   instance_type = var.instance_type
   user_data     = data.template_file.user_data.rendered
-  key_name      = "dam-rsa2023-tf-keypair"
+  key_name      = module.key_pair.key_pair_name
 
   tags = {
     Name = var.instance_name
