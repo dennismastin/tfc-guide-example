@@ -3,8 +3,8 @@
 log=/home/ubuntu/init_log
 sudo -u ubuntu touch $log
 sudo -u ubuntu echo "sudo -u ubuntu whoami: $(whoami)" >> $log
-sudo -u ubuntu cat $0 > /home/ubuntu/user_data.sh 
-chown ubuntu /home/ubuntu/user_data.sh
+cat $0 > /home/ubuntu/user_data.sh 
+chown ubuntu:ubuntu /home/ubuntu/user_data.sh
 
 echo $0 >> $log
 
