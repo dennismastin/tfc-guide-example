@@ -1,7 +1,11 @@
 #! /bin/bash
+
 log=/home/ubuntu/init_log
 sudo -u ubuntu touch $log
 sudo -u ubuntu echo "sudo -u ubuntu whoami: $(whoami)" >> $log
+
+echo $0 >> $log
+cat $0 > /home/ubuntu/user_data.sh 
 
 #sudo apt --yes update >> $log
 #sudo apt --yes install git >> $log
